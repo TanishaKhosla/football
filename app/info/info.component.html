@@ -1,0 +1,93 @@
+
+    <h1>Registration Form</h1>
+    <div class="bg-1">
+<form [formGroup]="registerForm">
+    
+    <div>
+        <label for="fullName">Full Name :</label>
+            <input type="text" class="form-control" formControlName="fullName">
+            <div *ngIf="!registerForm.get('fullName')?.valid && registerForm.get('fullName')?.touched">Name is required*</div>
+            <div *ngIf=" registerForm.get('fullName')?.errors?.pattern">
+                User name not valid.
+            </div>
+            <br><br> 
+    </div>
+    <div>
+        <label for="contact">Enter Phone Number :</label>
+            <input type="text" class="form-control" formControlName="number">
+            <div *ngIf="!registerForm.get('number')?.valid && registerForm.get('number')?.touched">Phone Number is required*</div>
+            <div *ngIf=" registerForm.get('number')?.errors?.pattern">
+                Phone Number not valid.
+            </div>
+            <br><br> 
+    </div>
+    <div>
+        <label for="address">Address :</label>
+            <input type="text" class="form-control" formControlName="Address">
+            <div *ngIf="!registerForm.get('Address')?.valid && registerForm.get('Address')?.touched">Address is required*</div>
+            <br><br> 
+    </div>
+    
+    
+   
+        <h2>Enter Another Player Data</h2>
+        <div class="bg-2">
+            <button class="btnA" (click)="addPlayer()">Add </button>
+            <button class="btnR" (click)="removePlayer()">Remove</button><br><br> 
+    
+    <div formArrayName="player">
+        <div *ngFor="let x of player.controls; let i=index" [formGroupName]="i">
+                <div>
+                    <label for="Name{{i}}">Name :</label>
+                    <input type="text" class="form-control" formControlName="playerName"><br><br> 
+                    <div *ngIf="!registerForm.get('playerName')?.valid && registerForm.get('playerName')?.touched"> is required*</div>
+                    
+                </div>
+        
+                <div>
+                    <label for="contact{{ i }}">Enter Conatct Number :</label>
+                    <input type="text" class="form-control" formControlName="playerNo"><br><br> 
+                    <div *ngIf="!registerForm.get('playerNo')?.valid && registerForm.get('playerNo')?.touched"> is required*</div>
+                </div>
+                <div>
+                    <label for="address{{ i }}">Address :</label>
+                    <input type="text" class="form-control" formControlName="playerHome"><br><br> 
+                    <div *ngIf="!registerForm.get('playerHome')?.valid && registerForm.get('playerHome')?.touched"> is required*</div>
+                </div>
+       </div>
+    </div>
+<button type="submit" (click)="onSubmit()">Submit</button><br><br> 
+
+
+</div>
+
+
+<h2>Form Data</h2>
+<div class="bg-3">
+
+<br><br>
+    Name: {{getName}}
+<br><br>    
+    Contact Number: {{getNumber}}
+<br><br>
+    Address: {{getAddress}}
+<br><br>
+    Next Player: {{getMemberName?.value.name}}
+<br><br>    
+    Contact Number: {{getMemberName?.value.phone}}
+<br><br>    
+    Address: {{getMemberName?.value.location}}
+    
+    <div *ngFor=" let player of player.controls;let i=index">
+        <div>player {{ i}}</div>
+       <div>
+         {{ player.value.playerName}}
+       </div>
+       <div>
+        {{ player.value.playerNo}}
+       </div>
+       <div>
+        {{ player.value.playerHome}}
+       </div>
+    </div>
+    

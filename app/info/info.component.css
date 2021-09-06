@@ -1,0 +1,40 @@
+p{
+    text-align: center;
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-decoration: underline #0099cc;
+    font-size:24px;
+    
+}
+h1{
+    
+        text-align: center;
+        color: black;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        text-decoration: underline #0099cc;
+        
+    
+}
+
+input{
+    width: 30;
+    padding: 10px 10px;
+  margin: 8px 0;
+  box-sizing: border-box ;
+  border: 1.5px solid #0099cc;
+  border-radius: 4px;
+}
+label{
+   
+  font-size: 20px;
+  
+}
+.bg-1{
+    background-color: azure;
+}
+.bg-2{
+    background-color: azure;
+}
+.bg-3{
+    background-color: azure;
+}
